@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 //引入组件
 import LoginPage from '@/pages/LoginPage'
-
+import RegisterPage from '@/pages/RegisterPage'
 Vue.use(Router)
 
 export default new Router({
@@ -18,6 +18,12 @@ export default new Router({
       name:'loginPage',
       component: LoginPage
 
-    }
+    },
+    {
+      path:'/register',
+      name:'registerPage',
+      component: RegisterPage
+
+    },
   ]
 })
