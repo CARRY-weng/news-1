@@ -66,7 +66,7 @@ export default {
     sendLogin(){
       // console.log(`登录按钮被点击了，应该发送ajax请求,发送用户名：${this.userName}和用户密码：${this.userPassWord}`);
       this.$axios({
-        url:'/post',
+        url:'/login',
         method:'post',
         data:{
           username:this.userName,

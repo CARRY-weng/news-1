@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 //引入组件
 import LoginPage from '@/pages/LoginPage'
 import RegisterPage from '@/pages/RegisterPage'
+import ProfilePage from '@/pages/ProfilePage'
 Vue.use(Router)
 
 export default new Router({
@@ -23,6 +24,12 @@ export default new Router({
       path:'/register',
       name:'registerPage',
       component: RegisterPage
+
+    },
+    {
+      path:'/profile',
+      name:'profilePage',
+      component: ProfilePage
 
     },
   ]
