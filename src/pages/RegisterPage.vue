@@ -81,17 +81,13 @@ export default {
                     nickname:this.nickName
                 }
             }).then(res=>{
-                console.log(res);
-                if(res.data.statusCode && res.data.statusCode == 400){
-                    this.$toast.fail(res.data.message)
-                }else{
-                    this.$toast.success(res.data.message)
-                    setTimeout(() => {
+              console.log(res);
+              if(!res.data.statusCode){  //失败提示在axios拦截器中已经做好了
+                  this.$toast.success(res.data.message)
+                  setTimeout(() => {
                     this.$router.push('/login')
-                }, 2000);
-                }
-                
-                
+                  }, 2000);
+              }
             })
         },
         //回退按钮

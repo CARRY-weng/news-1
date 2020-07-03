@@ -15,9 +15,26 @@ import 'vant/lib/index.css'
 import axios from 'axios'
 //绑定到原型
 Vue.prototype.$axios = axios
+
+//引入vant的弹窗（非组件）
+import { Toast } from 'vant';
+
+
 //设置默认api域名
 axios.defaults.baseURL = 'http://liangwei.tech:3000'
+//本地服务器
+// axios.defaults.baseURL = 'http://127.0.0.1:3000'
 
+//axios 响应拦截器
+axios.interceptors.response.use((res)=>{
+  const {message,statusCode} = res.data  //先获取res 中的message 和 statusCode 
+  if(message && statusCode == 401){
+    console.log('响应被拦截了');
+    // Toast.fail(message)
+    Toast.fail(message);
+  } 
+  return res
+})
 
 Vue.config.productionTip = false
 

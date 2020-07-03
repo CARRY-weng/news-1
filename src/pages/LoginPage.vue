@@ -64,7 +64,7 @@ export default {
     },
     //点击登录按钮触发
     sendLogin(){
-      console.log(`登录按钮被点击了，应该发送ajax请求,发送用户名：${this.userName}和用户密码：${this.userPassWord}`);
+      // console.log(`登录按钮被点击了，应该发送ajax请求,发送用户名：${this.userName}和用户密码：${this.userPassWord}`);
       this.$axios({
         url:'/post',
         method:'post',
@@ -74,8 +74,8 @@ export default {
         }
       }).then(res=>{
         console.log(res);
-        if(res.data.statusCode && res.data.statusCode == 401){
-          this.$toast.fail(res.data.message)
+        if(!res.data.statusCode){  //失败的提示在axios拦截器中做了 这里是只要返回的res没有statusCode 就证明成功 就直接弹出message
+          this.$toast.success(res.data.message)
         }
       })
     },
