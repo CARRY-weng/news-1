@@ -2,7 +2,7 @@
   <div class="profile">
     <div class="header">
       <div class="img">
-        <img src = 'http://n.sinaimg.cn/translate/w402h363/20180213/bg7r-fyrpeie1413753.jpg' />
+        <img src = 'http://www.005.tv/uploads/allimg/190116/55-1Z116143141217.jpeg' />
       </div>
       <div class="middle">
         <div class="name">
@@ -15,12 +15,38 @@
       </div>
       <span class="iconfont iconjiantou1"></span>
     </div>
+    <div class="line"></div>
+    <cellBar 
+    lable='我的关注'
+    desc='关注的用户'
+    @topage='topage'/>
+    <cellBar 
+    lable='我的跟帖'
+    desc='跟帖/回复'
+    @topage='topage'/>
+    <cellBar 
+    lable='我的收藏'
+    desc='文章/收藏'
+    @topage='topage'/>
+    <cellBar 
+    lable='设置'
+    desc=''
+    @topage='topage'/>
   </div>
 </template>
 
 <script>
+import cellBar from '../components/cellBar'
 export default {
-
+  components:{
+    cellBar:cellBar
+  },
+  methods:{
+    topage(page){
+      console.log('跳转到' + page + '页面');
+      
+    }
+  }
 }
 </script>
 
@@ -28,16 +54,19 @@ export default {
 .profile{
 
 }
+.line{
+  height: 5px;
+  background: #f2f2f2;
+}
 .header{
   padding: 5.556vw 5.556vw;
-  background: #f2f2f2;
   display: flex;
   justify-content: space-between;
   align-items: center;
   .img{
     img{
-      width: 22.222vw;
-      height: 22.222vw;
+      width: 16.667vw;
+      height: 16.667vw;
       border-radius: 50%;
     }
   }
