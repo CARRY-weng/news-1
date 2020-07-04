@@ -2,12 +2,13 @@
   <div class="profile">
     <div class="header">
       <div class="img">
-        <img src = 'http://www.005.tv/uploads/allimg/190116/55-1Z116143141217.jpeg' />
+        <img :src = "'http://liangwei.tech:3000' + profile.head_img" />
       </div>
       <div class="middle">
         <div class="name">
-          <span class="iconfont iconxingbienan"></span>
-          火星网友
+          <span v-if=" profile.gender == 1 " class="iconfont iconxingbienan"></span>
+          <span v-else class="iconfont iconxingbienv"></span>
+          {{profile.nickname}}
         </div>
         <div class="time">
           2019-10-10
@@ -41,11 +42,30 @@ export default {
   components:{
     cellBar:cellBar
   },
+  data(){
+    return {
+      profile:{
+
+      }
+    }
+  },
   methods:{
     topage(page){
       console.log('跳转到' + page + '页面');
       
     }
+  },
+  mounted(){
+    this.$axios({
+      url:'/user/'+localStorage.getItem('user_id'),
+      method:'get',
+      headers:{
+        Authorization:localStorage.getItem('token')
+      }
+    }).then(res=>{
+      console.log(res);
+      this.profile = res.data.data
+    })
   }
 }
 </script>
@@ -75,8 +95,14 @@ export default {
     padding-left: 2.778vw;
     .name{
       margin-bottom: 1.389vw;
-      .iconfont{
+      // .iconfont{
+      //   color: #99c0de;
+      // }
+      .iconxingbienan{
         color: #99c0de;
+      }
+      .iconxingbienv{
+        color:pink
       }
     }
   }
