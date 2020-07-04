@@ -75,7 +75,17 @@ export default {
       }).then(res=>{
         console.log(res);
         if(!res.data.statusCode){  //失败的提示在axios拦截器中做了 这里是只要返回的res没有statusCode 就证明成功 就直接弹出message
+          //保存数据到本地
+          localStorage.setItem('token',res.data.data.token)
+          localStorage.setItem('user_id',res.data.data.user.id)
+          //弹窗提示登录成功
           this.$toast.success(res.data.message)
+          //设置定时器 跳转到个人中心页面
+          var timer = setTimeout(() => {
+            this.$router.push({
+              name:'profilePage'
+            })
+          }, 2000);
         }
       })
     },
