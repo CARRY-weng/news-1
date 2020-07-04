@@ -55,7 +55,7 @@ export default {
 
 }
 .line{
-  height: 5px;
+  height: 1.389vw;
   background: #f2f2f2;
 }
 .header{

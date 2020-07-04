@@ -24,21 +24,21 @@ export default {
 
 <style lang="less" scoped>
 .cellbar{
-  height: 55px;
-  line-height: 55px;
+  height: 15.278vw;
+  line-height: 15.278vw;
   border-bottom: 1px solid #e4e4e4 ;
-  margin-left: 20px;
-  padding-right: 20px;
+  margin-left: 5.556vw;
+  padding-right: 5.556vw;
   display: flex;
   .left{
     flex: 1;
   }
   .middle{
-    font-size: 14px;
+    font-size: 3.889vw;
     color: #a2a2a2;
   }
   .iconfont{
-    padding-left: 5px;
+    padding-left: 1.389vw;
   }
 }
 </style>
