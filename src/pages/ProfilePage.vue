@@ -2,7 +2,8 @@
   <div class="profile">
     <div class="header">
       <div class="img">
-        <img :src = "'http://liangwei.tech:3000' + profile.head_img" />
+        <img v-if='!profile.head_img' src = "../assets/微信图片_20200704184825.jpg" />
+        <img v-else :src = "'http://liangwei.tech:3000' + profile.head_img" />
       </div>
       <div class="middle">
         <div class="name">
