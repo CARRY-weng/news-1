@@ -5,14 +5,19 @@ import HelloWorld from '@/components/HelloWorld'
 import LoginPage from '@/pages/LoginPage'
 import RegisterPage from '@/pages/RegisterPage'
 import ProfilePage from '@/pages/ProfilePage'
+import HomePage from '@/pages/HomePage'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      redirect:'/home'
+    },
+    {
+      path:'/home',
+      name:'homePage',
+      component:HomePage
     },
     {
       path:'/login',
