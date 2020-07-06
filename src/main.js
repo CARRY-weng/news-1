@@ -4,6 +4,27 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+//添加路由守卫
+router.beforeEach((to,from,next)=>{
+  //获取本地token
+  var token = localStorage.getItem('token')
+  //这里是去个人中心的逻辑
+  if(to.path == '/profile'){
+    //如果token不存在 就跳转到登录页面
+    if(token){
+      next()
+    }else{
+      router.push({
+        name:'loginPage'
+      })
+    }
+  }
+  //这里是去其他页面的逻辑
+  else{
+   next() 
+  }
+})
+
 //引入vant
 import Vant from 'vant'
 //注册vant 

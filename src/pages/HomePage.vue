@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-      主页
+      <router-link to='/profile'>去个人中心</router-link>
 
   </div>
 </template>
