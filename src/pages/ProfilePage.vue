@@ -33,7 +33,7 @@
     <cellBar 
     lable='设置'
     desc=''
-    @topage='topage'/>
+    @topage='$router.push("/editprofile")'/>
     <cellBar 
     lable='退出登录'
     desc=''

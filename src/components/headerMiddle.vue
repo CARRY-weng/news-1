@@ -1,6 +1,6 @@
 <template>
   <div class="headermiddle">
-      <span class="iconfont iconjiantou2"></span>
+      <span class="iconfont iconjiantou2" @click='back'></span>
       <span class="name">{{lable}}</span>
   </div>
 </template>
@@ -9,7 +9,12 @@
 export default {
     props:[
         'lable'
-    ]
+    ],
+    methods:{
+        back(){
+            this.$emit('back')
+        }
+    }
 }
 </script>
 
