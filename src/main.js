@@ -54,6 +54,12 @@ axios.interceptors.response.use((res)=>{
     // Toast.fail(message)
     Toast.fail(message);
   } 
+  //如果token错误  或者过期 就在axios 响应拦截器这里 处理
+  if(message == '用户信息验证失败'){
+    router.push({
+      path:'/login'
+    })
+  }
   return res
 })
 
